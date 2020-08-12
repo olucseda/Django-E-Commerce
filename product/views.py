@@ -1,6 +1,10 @@
+
+
 from django.http import HttpResponse
 from django.shortcuts import render
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Product Page")
+    text =  "Django kurulumu"
+    context = {'text' : text}
+    return render(request, 'index.html', context)
