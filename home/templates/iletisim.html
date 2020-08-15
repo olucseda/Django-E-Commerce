@@ -1,0 +1,78 @@
+{% extends "homebase.html" %}
+{% block title %}Hakkımızda {{ setting.company }}{% endblock %}
+{% block keywords %}{{ setting.keywords }}{% endblock %}
+
+{% block description %}{{ setting.description }}{% endblock %}
+
+{% block content %}
+    <section id="content">
+      <article class="col1">
+        <h3>Hot Travel</h3>
+        <div class="pad">
+          <div class="wrapper under">
+            <figure class="left marg_right1"><img src="images/page1_img1.jpg" alt=""></figure>
+            <p class="pad_bot2"><strong>Italy<br>
+              Holidays</strong></p>
+            <p class="pad_bot2">Lorem ipsum dolor sit amet, consect etuer adipiscing.</p>
+            <a href="#" class="marker_1"></a> </div>
+          <div class="wrapper under">
+            <figure class="left marg_right1"><img src="images/page1_img2.jpg" alt=""></figure>
+            <p class="pad_bot2"><strong>Philippines<br>
+              Travel</strong></p>
+            <p class="pad_bot2">Lorem ipsum dolor sit amet, consect etuer adipiscing.</p>
+            <a href="#" class="marker_1"></a> </div>
+          <div class="wrapper">
+            <figure class="left marg_right1"><img src="images/page1_img3.jpg" alt=""></figure>
+            <p class="pad_bot2"><strong>Cruise<br>
+              Holidays</strong></p>
+            <p class="pad_bot2">Lorem ipsum dolor sit amet, consect etuer adipiscing.</p>
+            <a href="#" class="marker_1"></a> </div>
+        </div>
+      </article>
+
+        <div class="col-md-8">
+                    <div class="shiping-methods">
+                        <div class="section-title">
+                            <h3 class="title">Iletisim Bilgilerimiz</h3>
+                        </div>
+                        <div >
+                            {{ setting.contact|safe }}
+                        </div>
+
+                    </div>
+                </div>
+      <article class="col2 pad_left1">
+        <h2>Iletisim Formu</h2>
+        <form id="ContactForm" action="#">
+          <div>
+            <div class="wrapper">
+              <input type="text" class="input" >
+              Name:<br />
+            </div>
+            <div class="wrapper">
+              <input type="text" class="input" >
+              E-mail:<br />
+            </div>
+            <div class="wrapper">
+              <textarea name="textarea" cols="1" rows="1"></textarea>
+              Message:<br />
+            </div>
+            <a href="#" class="button">send</a> <a href="#" class="button">clear</a> </div>
+        </form>
+      </article>
+    </section>
+  </div>
+  <div class="block"></div>
+</div>
+<div class="body1">
+  <div class="main">
+    <footer>
+      <div class="footerlink">
+        <p class="lf">Copyright &copy; 2010 <a href="#">SiteName</a> - All Rights Reserved</p>
+        <p class="rf">Design by <a href="http://www.templatemonster.com/">TemplateMonster</a></p>
+        <div style="clear:both;"></div>
+      </div>
+    </footer>
+  </div>
+</div>
+{% endblock %}

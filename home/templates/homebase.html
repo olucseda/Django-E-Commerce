@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Around the World {% endblock %}</title>
+        <meta name="keywords" content="{% block keywords %} Anahtar kelimeler {% endblock %}">
+        <meta name="description" content="{% block description %} Açıklamalar {% endblock %}">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{% static 'css/reset.css' %}" >
+        <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" >
+        <script  src="{% static 'js/jquery-1.4.2.js' %}" ></script>
+        <script  src="{% static 'js/cufon-yui.js' %}"></script>
+        <script  src="{% static 'js/cufon-replace.js' %}"></script>
+        <script  src="{% static 'js/Myriad_Pro_600.font.js' %}"></script>
+        <!--[if lt IE 9]>
+        <script  src="{% static 'js/ie6_script_other.js' %}"></script>
+        <script  src="{% static 'js/html5.js' %}"></script>
+        <![endif]-->
+    {% block head %} {% endblock %}
+    </head>
+
+
+    <body>
+        {% include 'header.html' %}
+        {% block sidebar %}{% include 'sidebar.html' %} {% endblock %}
+        {% block slider %}{% include 'slider.html' %} {% endblock %}
+        {% block content %}{% include 'content.html' %} {% endblock %}
+        {% include 'footer.html' %}
+        {% block foot %} {% endblock %}
+
+
+    </body>
+</html>
