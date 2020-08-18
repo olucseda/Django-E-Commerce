@@ -16,8 +16,15 @@
         <!--[if lt IE 9]>
         <script  src="{% static 'js/ie6_script_other.js' %}"></script>
         <script  src="{% static 'js/html5.js' %}"></script>
+        <script  src="{% static 'js/slider.js' %}"></script>
         <![endif]-->
-    {% block head %} {% endblock %}
+        <script src="sliderengine/jquery.js"></script>
+        <script src="sliderengine/amazingslider.js"></script>
+        <link rel="stylesheet" type="text/css" href="sliderengine/amazingslider-1.css">
+        <script src="sliderengine/initslider-1.js"></script>
+
+        {% block head %} {% endblock %}
+
     </head>
 
 

@@ -5,6 +5,7 @@
 {% block description %}{{ setting.description }}{% endblock %}
 
 {% block content %}
+
     <section id="content">
       <article class="col1">
         <h3>Hot Travel</h3>
@@ -33,54 +34,15 @@
         <div class="col-md-8">
                     <div class="shiping-methods">
                         <div class="section-title">
-                            <h3 class="title">Iletisim Bilgilerimiz</h3>
+                            <h3 class="title">Referanslarımız</h3>
                         </div>
                         <div >
-                            {{ setting.contact|safe }}
+                            {{ setting.references|safe }}
                         </div>
 
                     </div>
                 </div>
-      <article class="col2 pad_left1">
-        <h2>Iletisim Formu</h2>
-        <div class="section padding_layout_1">
-  <div class="container">
-    <div class="row">
-      <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 col-xs-12"></div>
-      <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12">
-        <div class="row">
 
-
-
-
-              </div>
-            </div>
-
-
-
-              {% if messages %}
-                  {% for message in messages %}
-                      <div class="alert alert-",{{message.tags}} role="alert">
-                            {{ message }}
-                      </div>
-                  {% endfor %}pyt
-              {% endif %}
-              <div class="main_heading text_align_center">
-              <form action="" method="post">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <input class="btn main_bt" type="submit" value="SEND FORM">
-              </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-      </article>
     </section>
 
   </div>
@@ -98,4 +60,5 @@
     </footer>
   </div>
 </div>
+
 {% endblock %}

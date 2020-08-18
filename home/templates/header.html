@@ -1,6 +1,8 @@
 {% load static %}
+{% load mptt_tags %}
 
 <header>
+    <link rel="stylesheet" href="css/style.css">
       <div class="wrapper">
         <h1><a href="index.html" id="logo">Around the World</a></h1>
         <div class="right">
@@ -13,26 +15,36 @@
             </form>
           </div>
           <div class="wrapper">
-            <nav>
+            <n>
               <ul id="top_nav">
                 <li><a href="#">Register</a></li>
                 <li><a href="#">Log In</a></li>
                 <li><a href="#">Help</a></li>
               </ul>
-            </nav>
+            </n>
           </div>
         </div>
       </div>
-      <nav>
+
+
+            </ul>
+            </div>
+            <!-- /category nav -->
+
+          <!-- menu start -->
+
+          <div class="menu_side">
+            <div id="navbar_menu">
+        <nav>
         <ul id="menu">
-          <li><a href="index.html" class="nav1">Home</a></li>
+          <li><a href="/index" class="nav1">Home</a></li>
           <li><a href="/hakkimizda" class="nav2">Hakkımızda </a></li>
-          <li><a href="product.html" class="nav3">Turlarımız</a></li>
-          <li><a href="destinations.html" class="nav4">Referanslarımız</a></li>
-          <li class="end"><a href="iletisim.html" class="nav5">Iletısım</a></li>
+          <li><a href="/turlarımız" class="nav3">Turlarımız</a></li>
+          <li><a href="/referanslarımız" class="nav4">Referanslarımız</a></li>
+          <li class="end"><a href="/iletisim" class="nav5">Iletısım</a></li>
         </ul>
-      </nav>
-      <article class="col1">
+        </nav>
+         <article class="col1">
         <ul class="tabs">
           <li><a href="#" class="active">Flight</a></li>
           <li><a href="#">Hotel</a></li>
@@ -84,10 +96,18 @@
         </div>
       </article>
       <article class="col1 pad_left1">
-        <div class="text"> <img src="{% static 'images/text1.jpg' %}" alt="">
+        <div class="text"> <img src="images/text1.jpg" alt="">
           <h2>The Best Offers</h2>
           <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore.</p>
           <a href="#" class="button">Read More</a> </div>
       </article>
       <div class="img"><img src="{% static 'images/img.jpg' %}" alt=""></div>
+
+</div></div>
+
+            </div>
+          </form>
+        </div>
+      </article>
+
     </header>

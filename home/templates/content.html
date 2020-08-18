@@ -1,36 +1,52 @@
 {% load static %}
+
+
 <section id="content">
-      <article class="col1">
+
+    <article class="col1">
+
         <h3>Hot Travel</h3>
         <div class="pad">
-          <div class="wrapper under">
-            <figure class="left marg_right1"><img src={% static 'images/page1_img1.jpg' %} alt=""></figure>
-            <p class="pad_bot2"><strong>Italy<br>
-              Holidays</strong></p>
-            <p class="pad_bot2">Lorem ipsum dolor sit amet, consect etuer adipiscing.</p>
-            <a href="#" class="marker_1"></a> </div>
+            <div class="wrapper under">
+                <figure class="left marg_right1"><img src={% static 'images/page1_img1.jpg' %} alt=""></figure>
+                <p class="pad_bot2"><strong>Italy<br>
+                    Holidays</strong></p>
+                <p class="pad_bot2">Lorem ipsum dolor sit amet, consect etuer adipiscing.</p>
+                <a href="#" class="marker_1"></a> </div>
 
-          <div class="wrapper">
-            <figure class="left marg_right1"><img src={% static 'images/page1_img3.jpg' %} alt=""></figure>
-            <p class="pad_bot2"><strong>Cruise<br>
-              Holidays</strong></p>
-            <p class="pad_bot2">Lorem ipsum dolor sit amet, consect etuer adipiscing.</p>
-            <a href={% static '#' %} class="marker_1"></a> </div>
+            <div class="wrapper">
+                <figure class="left marg_right1"><img src={% static 'images/page1_img3.jpg' %} alt=""></figure>
+                <p class="pad_bot2"><strong>Cruise<br>
+                    Holidays</strong></p>
+                <p class="pad_bot2">Lorem ipsum dolor sit amet, consect etuer adipiscing.</p>
+                <a href={% static '#' %} class="marker_1"></a> </div>
         </div>
-      </article>
-      <article class="col2 pad_left1">
+    </article>
+    <article class="col2 pad_left1">
+
         <h2>Popular Places</h2>
-        <div class="wrapper under">
-          <figure class="left marg_right1"><img src={% static 'images/page1_img4.jpg' %} alt=""></figure>
-          <p class="pad_bot2"><strong>Hotel du Havre</strong></p>
-          <p class="pad_bot2">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
-          <p class="pad_bot2"><strong>Nemo enim ipsam voluptatem</strong> quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur.</p>
-          <a href="#" class="marker_2"></a> </div>
-        <div class="wrapper">
-          <figure class="left marg_right1"><img src={% static 'images/page1_img5.jpg' %} alt=""></figure>
-          <p class="pad_bot2"><strong>Hotel Vacance</strong></p>
-          <p class="pad_bot2">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa.</p>
-          <p class="pad_bot2">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda.</p>
-          <a href={% static '#' %} class="marker_2"></a> </div>
-      </article>
-    </section>
+        <div >
+            {{ product.category|safe }}
+            {% for rs in products %}
+                <!-- Product Single -->
+
+                <div class="product product-single">
+
+                    <img src="{{ rs.image.url }}" alt="">
+                    <div class="product-body">
+                        <h2 class="product-name"><a href="#">{{ rs.title }}</a></h2>
+                        <div class="product-btns">
+                            <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
+                            <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
+                            {% if rs.variant == 'None'%}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <!-- /Product Single -->
+            {% endfor %}
+
+        </div>
+    </article>
+</section>
