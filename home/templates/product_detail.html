@@ -1,0 +1,108 @@
+{% extends "homebase.html" %}
+{% block title %}Hakkımızda {{ setting.company }}{% endblock %}
+{% block keywords %}{{ setting.keywords }}{% endblock %}
+
+{% block description %}{{ setting.description }}{% endblock %}
+
+{% block content %}
+
+
+    <section id="content">
+        <article class="col1">
+            <h3>Hot Travel</h3>
+            <div class="pad">
+                <div class="wrapper under">
+
+                    <p class="pad_bot2"><strong>Italy<br>
+                        Holidays</strong></p>
+                    <p class="pad_bot2">Lorem ipsum dolor sit amet, consect etuer adipiscing.</p>
+                    <a href="#" class="marker_1"></a> </div>
+                <div class="wrapper under">
+
+                    <p class="pad_bot2"><strong>Philippines<br>
+                        Travel</strong></p>
+                    <p class="pad_bot2">Lorem ipsum dolor sit amet, consect etuer adipiscing.</p>
+                    <a href="#" class="marker_1"></a> </div>
+                <div class="wrapper">
+
+                    <p class="pad_bot2"><strong>Cruise<br>
+                        Holidays</strong></p>
+                    <p class="pad_bot2">Lorem ipsum dolor sit amet, consect etuer adipiscing.</p>
+                    <a href="#" class="marker_1"></a> </div>
+            </div>
+        </article>
+        <article class="col2 pad_left1">
+
+            <div >
+                <!-- BREADCRUMB -->
+                <div id="breadcrumb">
+                    <div class="container">
+                        <ul class="breadcrumb">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/product/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}/{{ rs.detail }}/</a></li>
+                            <li class="active">{{ rs.title }}</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /BREADCRUMB -->
+
+                <!-- section -->
+                <div class="section">
+                    <!-- container -->
+                    <div class="container">
+                        <!-- row -->
+                        <div class="row">
+                            <!--  Product Details -->
+                            <div class="product product-details clearfix">
+                                <div class="col-md-6">
+                                    <div id="product-main-view">
+                                        <div class="product-view">
+                                            <img src="{{ rs.product.image.url }}" alt="" style="height: 400px">
+                                        </div>
+                                        {% for rs in images %}
+                                            <div class="product-view">
+                                                <img src="{{ rs.image.url }}" alt="" style="height: 400px">
+                                            </div>
+                                        {% endfor %}
+
+
+                                    </div>
+                                    <div id="product-view">
+                                        <div class="product-view">
+                                            <img src="{{ product.image.url }}" alt="">
+                                        </div>
+                                        {% for rs in images %}
+                                            <div class="product-view">
+                                                <img src="{{ rs.image.url }}" alt="aa" >
+                                            </div>
+                                        {% endfor %}
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+    <div class="block"></div>
+    </div>
+    <div class="body1">
+        <div class="main">
+            <footer>
+                <div class="footerlink">
+                    <p class="lf">Copyright &copy; 2010 <a href="#">SiteName</a> - All Rights Reserved</p>
+                    <p class="rf">Design by <a href="http://www.templatemonster.com/">TemplateMonster</a></p>
+                    <div style="clear:both;"></div>
+                </div>
+            </footer>
+        </div>
+    </div>
+{% endblock %}
+<h2 class="product-name">{{ product.title }}</h2>
+<h3 class="product-price">{{ product.price}}<del class="product-old-price">$45.00</del></h3>
+<!-- END PAGE SOURCE -->

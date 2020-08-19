@@ -1,0 +1,97 @@
+{% extends "homebase.html" %}
+{% block title %}Sign Up {{ setting.company }}{% endblock %}
+{% block keywords %}{{ setting.keywords }}{% endblock %}
+
+{% block description %}{{ setting.description }}{% endblock %}
+
+{% block content %}
+    <section id="content">
+        <article class="col1">
+            <h3>Hot Travel</h3>
+            <div class="pad">
+                <div class="wrapper under">
+                    <figure class="left marg_right1"><img src="images/page1_img1.jpg" alt=""></figure>
+                    <p class="pad_bot2"><strong>Italy<br>
+                        Holidays</strong></p>
+                    <p class="pad_bot2">Lorem ipsum dolor sit amet, consect etuer adipiscing.</p>
+                    <a href="#" class="marker_1"></a> </div>
+                <div class="wrapper under">
+                    <figure class="left marg_right1"><img src="images/page1_img2.jpg" alt=""></figure>
+                    <p class="pad_bot2"><strong>Philippines<br>
+                        Travel</strong></p>
+                    <p class="pad_bot2">Lorem ipsum dolor sit amet, consect etuer adipiscing.</p>
+                    <a href="#" class="marker_1"></a> </div>
+                <div class="wrapper">
+                    <figure class="left marg_right1"><img src="images/page1_img3.jpg" alt=""></figure>
+                    <p class="pad_bot2"><strong>Cruise<br>
+                        Holidays</strong></p>
+                    <p class="pad_bot2">Lorem ipsum dolor sit amet, consect etuer adipiscing.</p>
+                    <a href="#" class="marker_1"></a> </div>
+            </div>
+        </article>
+        <article class="col2 pad_left1">
+            <h2>Sign Up  Formu</h2>
+            <div class="section padding_layout_1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 col-xs-12"></div>
+                        <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                            <div class="row">
+
+                            </div>
+                        </div>
+
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-",{{message.tags}} role="alert">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            {% for field in form %}
+                                <p>
+                                    {{ field.label_tag }}<br>
+                                    {{ field }}
+                                    {% if field.help_text %}
+                                        <small style="color: grey">{{ field.help_text }}</small>
+                                    {% endif %}
+                                    {% for error in field.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                </p>
+                            {% endfor %}
+                            <button type="submit">Sign up</button>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+
+        </article>
+    </section>
+
+    </div>
+
+    <div class="block"></div>
+    </div>
+    <div class="body1">
+        <div class="main">
+            <footer>
+                <div class="footerlink">
+                    <p class="lf">Copyright &copy; 2010 <a href="#">SiteName</a> - All Rights Reserved</p>
+                    <p class="rf">Design by <a href="http://www.templatemonster.com/">TemplateMonster</a></p>
+                    <div style="clear:both;"></div>
+                </div>
+            </footer>
+        </div>
+    </div>
+{% endblock %}

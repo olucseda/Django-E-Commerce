@@ -6,20 +6,39 @@
       <div class="wrapper">
         <h1><a href="index.html" id="logo">Around the World</a></h1>
         <div class="right">
-          <div class="wrapper">
-            <form id="search" action="#" method="post">
-              <div class="bg">
-                <input type="submit" class="submit" value="">
-                <input type="text" class="input">
-              </div>
+          <div class="header-search">
+            <form action="/search/" method="post">
+                {% csrf_token %}
+                <input name="query" class="input search-input" type="text" placeholder="Enter your keyword">
+                <button class="search-btn"><i class="fa fa-search"></i> </button>
+
             </form>
           </div>
           <div class="wrapper">
             <n>
               <ul id="top_nav">
-                <li><a href="#">Register</a></li>
-                <li><a href="#">Log In</a></li>
-                <li><a href="#">Help</a></li>
+                <li class="header-account dropdown default-dropdown">
+                        {% if user.id is not None %}
+                            <div class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="true">
+                                <div class="header-btns-icon">
+                                    <i class="fa fa-user-o"></i>
+                                    <img src="{{ request.session.userimage }}" style="height: 40px; border-radius: 30%">
+                                </div>
+                                <strong class="text-uppercase">{{ user.first_name }} <i class="fa fa-caret-down"></i></strong>
+                            </div>
+                        {% else %}
+                            <a href=" /login" class="text-uppercase">Login</a> / <a href="/signup/" class="text-uppercase">Sign Up</a>
+                        {% endif %}
+
+                        <ul class="custom-menu">
+                            <li><a href="#"><i class="fa fa-user-o"></i>  "My Account" </a></li>
+                            <li><a href="#"><i class="fa fa-heart-o"></i>  "My Comments" </a></li>
+                            <li><a href="/logout/"><i class="fa fa-unlock-alt"></i>  "Logout " </a></li>
+                            <li><a href="#"><i class="fa fa-unlock-alt"></i>  "Create An Account " </a></li>
+
+
+                        </ul>
+                    </li>
               </ul>
             </n>
           </div>
