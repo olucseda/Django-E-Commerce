@@ -21,8 +21,7 @@
                         {% if user.id is not None %}
                             <div class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="true">
                                 <div class="header-btns-icon">
-                                    <i class="fa fa-user-o"></i>
-                                    <img src="{{ request.session.userimage }}" style="height: 40px; border-radius: 30%">
+                                    <img src="{{ request.user.profile.image.url }}">
                                 </div>
                                 <strong class="text-uppercase">{{ user.first_name }} <i class="fa fa-caret-down"></i></strong>
                             </div>

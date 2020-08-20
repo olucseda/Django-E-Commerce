@@ -9,18 +9,20 @@ from django.shortcuts import render
 import home
 from home.forms import SearchForm, SignUpForm
 from home.models import Setting, ContactFormMessage, ContactFormu, Setting
-from product.models import Category, Product
+from product.models import Category, Product, Images
 
 
 def index(request):
     setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
+    images = Images.objects.get(pk=9)
     dayproducts = Product.objects.all()[:3]
     lastproducts = Product.objects.all().order_by('-id')[:6]
     randomproducts = Product.objects.all().order_by('?')[:4]
 
     context = {'setting': setting,
                'category': category,
+               'images': images,
                'page': 'home',
                'dayproducts': dayproducts,
                'lastproducts': lastproducts,
@@ -132,6 +134,11 @@ def signup_view(request):
             password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=password)
             login(request, user)
+            current_user = request.user
+            data = UserProfile()
+            data.user_id = current_user.id
+            data.image = "images/users/user.png"
+            data.save()
             return HttpResponseRedirect('/')
     form = SignUpForm()
     category = Category.objects.all()

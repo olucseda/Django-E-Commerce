@@ -2,6 +2,7 @@ from django.db import models
 
 from ckeditor_uploader.fields import RichTextUploadingField
 # Create your models here.
+from django.utils.safestring import mark_safe
 from mptt.fields import TreeForeignKey
 from mptt.models import MPTTModel
 
