@@ -19,12 +19,14 @@ class CategoryAdmin(admin.ModelAdmin):
     list_filter = ['status']
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['title', 'category', 'price', 'amount','status']
+    list_display = ['title', 'category', 'price', 'amount','status','image_tag']
     list_filter = ['status', 'category']
     inlines = [ProductImageInline]
+    readonly_fields = ('image_tag',)
 
 class ImagesAdmin(admin.ModelAdmin):
-    list_display = ['title', 'product']
+    list_display =['title','product','image_tag']
+    readonly_fields = ('image_tag',)
 
 
 
@@ -64,7 +66,7 @@ class CategoryAdmin2(DraggableMPTTAdmin):
 class CommentAdmin(admin.ModelAdmin):
     list_display = ['subject','comment', 'status','create_at']
     list_filter = ['status']
-    readonly_fields = ('subject','comment','ip','user','product','rate','id')
+    readonly_fields = ('subject','comment','ip','user','product','id')
 
 admin.site.register(Category, CategoryAdmin2)
 admin.site.register(Product, ProductAdmin)

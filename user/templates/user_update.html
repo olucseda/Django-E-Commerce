@@ -5,74 +5,57 @@
 {% block description %}{{ setting.description }}{% endblock %}
 
 {% block content %}
-    <section id="content">
-    <article class="col1">
-        <h3>Hot Travel</h3>
-        <div class="pad">
-            <div class="wrapper under">
-                <figure class="left marg_right1"><img src="images/page1_img1.jpg" alt=""></figure>
-                <p class="pad_bot2"><strong>Italy<br>
-                    Holidays</strong></p>
-                <p class="pad_bot2">Lorem ipsum dolor sit amet, consect etuer adipiscing.</p>
-                <a href="#" class="marker_1"></a> </div>
-            <div class="wrapper under">
-                <figure class="left marg_right1"><img src="images/page1_img2.jpg" alt=""></figure>
-                <p class="pad_bot2"><strong>Philippines<br>
-                    Travel</strong></p>
-                <p class="pad_bot2">Lorem ipsum dolor sit amet, consect etuer adipiscing.</p>
-                <a href="#" class="marker_1"></a> </div>
-            <div class="wrapper">
-                <figure class="left marg_right1"><img src="images/page1_img3.jpg" alt=""></figure>
-                <p class="pad_bot2"><strong>Cruise<br>
-                    Holidays</strong></p>
-                <p class="pad_bot2">Lorem ipsum dolor sit amet, consect etuer adipiscing.</p>
-                <a href="#" class="marker_1"></a> </div>
+    <div class="all-title-box">
+        <div class="container text-center">
+            <h1>User Profile<span class="m_1">Lorem Ipsum dolroin gravida nibh vel velit.</span></h1>
         </div>
-    </article>
-    <article>
-    <div class="section">
-        <!-- container -->
+    </div>
+    <div id="contact" class="section wb">
         <div class="container">
-            <!-- row -->
+
+
             <div class="row">
-
                 <div class="col-md-3">
-                    {% include "user_panel.html" %}
-                </div>
-
-                <div class="col-md-9">
-                    <div class="billing-details">
-                        <div class="section-title">
-                            <h3 class="title">User Profile Update</h3>
+                    <div class="container">
+                        <div class="map-box">
+                            <h2 class="title">User Panel</h2>
                         </div>
+                        {% include "user_panel.html" %}
+
+
                     </div>
+                </div><!-- end col -->
+                <div class="col-md-9">
+                    <div class="map-box">
+                        <h2 class="title">User Information</h2>
+                        <div class="content">
 
-                    <form method="POST" enctype = "multipart/form-data">
-                        {% csrf_token %}
-                        <fieldset class="form-group">
-                            {{ user_form.as_p  }}
-                            {{ profile_form.as_p  }}
-                        </fieldset>
-                        <div class="form-group">
-                            <button class="primary-btn" type="submit">Update</button>
+                            <div class="media">
+
+                                <img src="{{ profile.image.url }}" style="width: 150px;height: 200px " alt="">
+                            </div>
+
+                            <form method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <fieldset class="form-group">
+                                    {{ user_form.as_p }}
+                                    {{ profile_form.as_p }}
+
+                                </fieldset>
+                                <div class="form-group">
+                                    <button class="btn-custom" type="submit">Update</button>
+                                </div>
+
+                            </form>
+
+
                         </div>
-                    </form>
 
+                    </div>
                 </div>
-            </div>
-            <!-- /row -->
-        </div>
-
-    </div>
-
-    </div>
-
-
-    </div>
-    <!-- /row -->
-    </div>
-    <!-- /container -->
-    </div>
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section -->
     <!-- /section -->
 
 {% endblock %}

@@ -1,5 +1,4 @@
-from pyexpat.errors import messages
-
+from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
@@ -12,7 +11,7 @@ def index(request):
     context = {'text' : text}
     return render(request, 'index.html', context)
 
-def comment(request,id):
+def addcomment(request,id):
    url = request.META.get('HTTP_REFERER')  # get last url
    #return HttpResponse(url)
    if request.method == 'POST':  # check post
@@ -21,7 +20,6 @@ def comment(request,id):
          data = Comment()  # create relation with model
          data.subject = form.cleaned_data['subject']
          data.comment = form.cleaned_data['comment']
-         data.rate = form.cleaned_data['rate']
          data.ip = request.META.get('REMOTE_ADDR')
          data.product_id=id
          current_user= request.user

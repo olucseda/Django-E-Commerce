@@ -10,20 +10,18 @@ from django.shortcuts import render
 import home
 from home.forms import SearchForm, SignUpForm
 from home.models import Setting, ContactFormMessage, ContactFormu, Setting, UserProfile
-from product.models import Category, Product, Images
+from product.models import Category, Product, Images, Comment
 
 
 def index(request):
     setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
-    images = Images.objects.get(pk=9)
-    dayproducts = Product.objects.all()[:3]
+    dayproducts = Product.objects.all().order_by(('-id'))[:5]
     lastproducts = Product.objects.all().order_by('-id')[:6]
     randomproducts = Product.objects.all().order_by('?')[:4]
 
     context = {'setting': setting,
                'category': category,
-               'images': images,
                'page': 'home',
                'dayproducts': dayproducts,
                'lastproducts': lastproducts,
@@ -64,7 +62,7 @@ def referanslarımız(request):
     category = Category.objects.all()
     context = {'setting':setting, 'category': category}
     return render(request, 'referanslarımız.html', context)
-def category_products(request,id,slug,image):
+def category_products(request,id,slug):
     category = Category.objects.all()
     categorydata = Category.objects.get(pk=id)
     setting = Setting.objects.get(pk=1)
@@ -73,14 +71,20 @@ def category_products(request,id,slug,image):
                'category': category,
                'setting': setting,
                'categorydata': categorydata,
-               'image': image,}
+               'image': image,
+               'slug': slug,}
     return render(request, 'products.html', context)
 
-def product_detail(request,id,slug,image):
+def product_detail(request,id,slug):
     category = Category.objects.all()
-    context = {#'products': products,
+    product = Product.objects.get(pk=id)
+    images = Images.objects.filter(product_id=id)
+    comments = Comment.objects.filter(product_id=id, status='True')
+    context = {'product': product,
                'category': category,
-                'image': image,}
+                'images': images,
+               'comments':comments,
+               'slug': slug,}
     return render(request, 'product_detail.html',context)
 def turlarımız(request):
     setting = Setting.objects.get(pk=1)
