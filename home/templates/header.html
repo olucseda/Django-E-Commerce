@@ -3,129 +3,73 @@
 
 <header>
     <link rel="stylesheet" href="css/style.css">
-      <div class="wrapper">
+    <div class="wrapper">
         <h1><a href="index.html" id="logo">Around the World</a></h1>
         <div class="right">
-          <div class="header-search">
-            <form action="/search/" method="post">
-                {% csrf_token %}
-                <input name="query" class="input search-input" type="text" placeholder="Enter your keyword">
-                <button class="search-btn"><i class="fa fa-search"></i> </button>
+            <div class="header-search">
+                <form action="/search/" method="post">
+                    {% csrf_token %}
+                    <input name="query" class="input search-input" type="text" placeholder="Enter your keyword">
+                    <button class="search-btn"><i class="fa fa-search"></i> </button>
 
-            </form>
-          </div>
-          <div class="wrapper">
-            <n>
-              <ul id="top_nav">
-                <li class="header-account dropdown default-dropdown">
-                        {% if user.id is not None %}
-                            <div class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="true">
-                                <div class="header-btns-icon">
-                                    <img src="{{ request.user.profile.image.url }}">
+                </form>
+            </div>
+            <div class="wrapper">
+                <n>
+                    <ul id="top_nav">
+                        <li class="header-account dropdown default-dropdown">
+                            {% if user.id is not None %}
+                                <div class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="true">
+                                    <div class="header-btns-icon">
+                                        <img src="{{ request.user.profile.image.url }}">
+                                    </div>
+                                    <strong class="text-uppercase">{{ user.first_name }} <i class="fa fa-caret-down"></i></strong>
                                 </div>
-                                <strong class="text-uppercase">{{ user.first_name }} <i class="fa fa-caret-down"></i></strong>
-                            </div>
-                        {% else %}
-                            <a href=" /login" class="text-uppercase">Login</a> / <a href="/signup/" class="text-uppercase">Sign Up</a>
-                        {% endif %}
+                            {% else %}
+                                <a href=" /login" class="text-uppercase">Login</a> / <a href="/signup/" class="text-uppercase">Sign Up</a>
+                            {% endif %}
 
-                        <ul class="custom-menu">
-                            <li><a href="#"><i class="fa fa-user-o"></i>  "My Account" </a></li>
-                            <li><a href="#"><i class="fa fa-heart-o"></i>  "My Comments" </a></li>
-                            <li><a href="/logout/"><i class="fa fa-unlock-alt"></i>  "Logout " </a></li>
-                            <li><a href="#"><i class="fa fa-unlock-alt"></i>  "Create An Account " </a></li>
-
-
-                        </ul>
-                    </li>
-              </ul>
-            </n>
-          </div>
-        </div>
-      </div>
+                            <ul class="custom-menu">
+                                <li><a href="/user/"><i class="fa fa-caret-right"></i> My Account </a></li>
+                                <li><a href="/user/contents"><i class="fa fa-caret-right"></i> My Content </a></li>
+                                <li><a href="/user/comments/"><i class="fa fa-caret-right"></i> My Comment</a></li>
+                                <li><a href="/user/addcontent"><i class="fa fa-caret-right"></i> Products </a></li>
+                                <li><a href="/logout/"><i class="fa fa-caret-right"></i> Logout </a></li>
 
 
-            </ul>
+                            </ul>
+                        </li>
+                    </ul>
+                </n>
             </div>
-            <!-- /category nav -->
-
-          <!-- menu start -->
-
-          <div class="menu_side">
-            <div id="navbar_menu">
-        <nav>
-        <ul id="menu">
-          <li><a href="/index" class="nav1">Home</a></li>
-          <li><a href="/hakkimizda" class="nav2">Hakkımızda </a></li>
-          <li><a href="/turlarımız" class="nav3">Turlarımız</a></li>
-          <li><a href="/referanslarımız" class="nav4">Referanslarımız</a></li>
-          <li class="end"><a href="/iletisim" class="nav5">Iletısım</a></li>
-        </ul>
-        </nav>
-         <article class="col1">
-        <ul class="tabs">
-          <li><a href="#" class="active">Flight</a></li>
-          <li><a href="#">Hotel</a></li>
-          <li><a href="#">Car</a></li>
-          <li class="end"><a href="#">Cruise</a></li>
-        </ul>
-        <div class="tabs_cont">
-          <form id="form_1" action="#" method="post">
-            <div class="bg">
-              <div class="wrapper">
-                <div class="radio">
-                  <input type="radio" name="name1" checked>
-                  Round trip </div>
-                <div class="radio">
-                  <input type="radio" name="name1">
-                  One way</div>
-              </div>
-              <a href="#">Multiple destinations</a>
-              <div class="wrapper">
-                <input type="text" class="input">
-                From</div>
-              <div class="wrapper">
-                <input type="text" class="input">
-                To</div>
-              <div class="wrapper check_box">
-                <input type="checkbox" checked >
-                <a href="#">Search nearby airports</a></div>
-              <div class="wrapper">
-                <input type="text" class="input input2" value="04/11/2010"  onblur="if(this.value=='') this.value='04/11/2010'" onFocus="if(this.value =='04/11/2010' ) this.value=''">
-                Depart (mm/dd/yy)</div>
-              <div class="wrapper pad_bot1">
-                <input type="text" class="input input2" value="04/11/2010"  onblur="if(this.value=='') this.value='04/11/2010'" onFocus="if(this.value =='04/11/2010' ) this.value=''">
-                Return  (mm/dd/yy)</div>
-              <div class="wrapper">
-                <div class="radio">
-                  <input type="radio" name="name2" checked>
-                  Economy cabin</div>
-                <div class="radio end">
-                  <input type="radio" name="name2">
-                  Business</div>
-              </div>
-              <div class="wrapper pad_bot1"> <a href="#" class="button">Search</a> Audlts
-                <select>
-                  <option>1</option>
-                </select>
-              </div>
-            </div>
-          </form>
         </div>
-      </article>
-      <article class="col1 pad_left1">
-        <div class="text"> <img src="images/text1.jpg" alt="">
-          <h2>The Best Offers</h2>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore.</p>
-          <a href="#" class="button">Read More</a> </div>
-      </article>
-      <div class="img"><img src="{% static 'images/img.jpg' %}" alt=""></div>
+    </div>
 
-</div></div>
 
-            </div>
-          </form>
-        </div>
-      </article>
+    </ul>
+    </div>
+    <!-- /category nav -->
 
-    </header>
+    <!-- menu start -->
+
+    <div class="menu_side">
+        <div id="navbar_menu">
+            <nav>
+                <ul id="menu">
+                    <li><a href="/index" class="nav1">Home</a></li>
+                    <li><a href="/hakkimizda" class="nav2">Hakkımızda </a></li>
+                    <li><a href="/turlarımız" class="nav3">Turlarımız</a></li>
+                    <li><a href="/referanslarımız" class="nav4">Referanslarımız</a></li>
+                    <li class="end"><a href="/iletisim" class="nav5">Iletısım</a></li>
+                </ul>
+            </nav>
+
+
+        </div></div>
+
+    </div>
+    </form>
+    </div>
+    </article>
+
+</header>

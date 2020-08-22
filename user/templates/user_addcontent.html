@@ -1,0 +1,37 @@
+{% extends "homebase.html" %}
+{% block title %} {{ profile.user_name }} Profile {% endblock %}
+{% block keywords %}{{ setting.keywords }}{% endblock %}
+{% block description %}{{ setting.description }}{% endblock %}
+
+{% block content %}
+    {%if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+    <div class="extra">
+        <div class="main">
+            <div class="row">
+                <div class="col-md-8">
+                    <h3 class="text-heading">Adding Travael </h3>
+                    {% load static %}
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <fieldset class="form-group">
+                            {{ form.media }}
+                            {{ form.as_p }}
+                        </fieldset>
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="submit">Save</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-4">
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

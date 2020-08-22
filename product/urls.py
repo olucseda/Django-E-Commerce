@@ -5,6 +5,7 @@ from . import views
 urlpatterns = [
     # ex: /home/
     path('', views.index, name='index'),
+    path('comment/<int:id>', views.comment, name='comment'),
 
     # ex: /home/5/
     #path('<int:question_id>/', views.detail, name='detail'),

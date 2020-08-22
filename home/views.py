@@ -1,3 +1,4 @@
+from email.mime import image
 from pyexpat.errors import messages
 
 from django.contrib.auth import logout, authenticate, login
@@ -8,7 +9,7 @@ from django.shortcuts import render
 # Create your views here.
 import home
 from home.forms import SearchForm, SignUpForm
-from home.models import Setting, ContactFormMessage, ContactFormu, Setting
+from home.models import Setting, ContactFormMessage, ContactFormu, Setting, UserProfile
 from product.models import Category, Product, Images
 
 
@@ -63,7 +64,7 @@ def referanslarımız(request):
     category = Category.objects.all()
     context = {'setting':setting, 'category': category}
     return render(request, 'referanslarımız.html', context)
-def category_products(request,id,slug):
+def category_products(request,id,slug,image):
     category = Category.objects.all()
     categorydata = Category.objects.get(pk=id)
     setting = Setting.objects.get(pk=1)
@@ -71,13 +72,15 @@ def category_products(request,id,slug):
     context = {'products': products,
                'category': category,
                'setting': setting,
-               'categorydata': categorydata}
+               'categorydata': categorydata,
+               'image': image,}
     return render(request, 'products.html', context)
 
-def product_detail(request,id,slug):
+def product_detail(request,id,slug,image):
     category = Category.objects.all()
     context = {#'products': products,
-               'category': category,}
+               'category': category,
+                'image': image,}
     return render(request, 'product_detail.html',context)
 def turlarımız(request):
     setting = Setting.objects.get(pk=1)
@@ -122,7 +125,8 @@ def login_view(request):
 
 
     category = Category.objects.all()
-    context= {'category': category,}
+    context= {'category': category,
+              'image': image,}
     return render(request, 'login.html', context)
 
 def signup_view(request):

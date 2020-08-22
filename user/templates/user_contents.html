@@ -1,0 +1,98 @@
+{% extends "homebase.html" %}
+{% block title %} {{ profile.user_name }} Contents {% endblock %}
+{% block keywords %}{{ setting.keywords }}{% endblock %}
+
+{% block description %}{{ setting.description }}{% endblock %}
+
+{% block content %}
+    <section id="content">
+    <article class="col1">
+        <h3>Hot Travel</h3>
+        <div class="pad">
+            <div class="wrapper under">
+                <figure class="left marg_right1"><img src="images/page1_img1.jpg" alt=""></figure>
+                <p class="pad_bot2"><strong>Italy<br>
+                    Holidays</strong></p>
+                <p class="pad_bot2">Lorem ipsum dolor sit amet, consect etuer adipiscing.</p>
+                <a href="#" class="marker_1"></a> </div>
+            <div class="wrapper under">
+                <figure class="left marg_right1"><img src="images/page1_img2.jpg" alt=""></figure>
+                <p class="pad_bot2"><strong>Philippines<br>
+                    Travel</strong></p>
+                <p class="pad_bot2">Lorem ipsum dolor sit amet, consect etuer adipiscing.</p>
+                <a href="#" class="marker_1"></a> </div>
+            <div class="wrapper">
+                <figure class="left marg_right1"><img src="images/page1_img3.jpg" alt=""></figure>
+                <p class="pad_bot2"><strong>Cruise<br>
+                    Holidays</strong></p>
+                <p class="pad_bot2">Lorem ipsum dolor sit amet, consect etuer adipiscing.</p>
+                <a href="#" class="marker_1"></a> </div>
+        </div>
+    </article>
+    <article>
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    {% include "user_panel.html" %}
+                </div>
+                <div class="col-md-10">
+                    <div class="section-title">
+                        <h4 class="title">User Contents List<a class="primary-btn" href="user_addcontents">Add Contents</a> </h4>
+                    </div>
+                    <table class="shopping-cart-table table">
+                        <tr>
+                            <th class="text-left">Image </th>
+                            <th class="text-left">Title </th>
+                            <th class="text-left">Type </th>
+                            <th class="text-left">Menu </th>
+                            <th class="text-left">Status </th>
+                            <th class="text-left">Date </th>
+                            <th class="text-left">Detail </th>
+                        </tr>
+                        {% for rs in contents %}
+                            <tr>
+                                <td class="text-left">
+                                    <a href="/product/{{ rs.product_id }}/{{ rs.product.slug }}">
+                                        <strong> {{ rs.product.title}}</strong>
+                                    </a>
+                                </td>
+                                <td class="text-left">{{ rs.rate}} </td>
+                                <td class="text-left">{{ rs.subject}} </td>
+                                <td class="text-left">{{ rs.comment}} </td>
+                                <td class="text-left">{{ rs.status}} </td>
+                                <td class="text-left">{{ rs.create_at}} </td>
+                                <td class="text-left">
+                                    <a class="primary-btn" href="/user/deletecomment/{{ rs.id }}" onclick="return confirm('Will be Delete ! Are you sure?')"> Delete </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /section -->
+
+{% endblock %}
+
+</article>
+</section>
+
+</div>
+
+<div class="block"></div>
+</div>
+<div class="body1">
+    <div class="main">
+        <footer>
+            <div class="footerlink">
+                <p class="lf">Copyright &copy; 2010 <a href="#">SiteName</a> - All Rights Reserved</p>
+                <p class="rf">Design by <a href="http://www.templatemonster.com/">TemplateMonster</a></p>
+                <div style="clear:both;"></div>
+            </div>
+        </footer>
+    </div>
+</div>

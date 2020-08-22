@@ -1,0 +1,49 @@
+{% extends "homebase.html" %}
+{% block title %} {{ profile.user_name }} Profile {% endblock %}
+{% block keywords %}{{ setting.keywords }}{% endblock %}
+{% block description %}{{ setting.description }}{% endblock %}
+
+{% block content %}
+    {% load static %}
+    {%if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+    <div class="extra">
+        <div class="main">
+            <div class="row">
+                <div class="col-md-8">
+                    <h4 class="text-heading">User Travel List
+            <a class="btn btn-success" href="/user/addcontent"> Add Travel </a></h4>
+                    <table cellpadding="4" style="border-collapse: collapse;">
+                        <tr>
+                            <th>Image</th>
+                            <th>Category</th>
+                            <th>Title</th>
+                            <th>Price</th>
+                            <th>Status</th>
+
+                        </tr>
+                        {% for rs in contents %}
+                        <tr>
+                            <td style="border-bottom: 5px solid #ddd;"> <a href="/travel/{{ rs.id }}/{{ rs.slug }}"> <img src="{{ rs.image.url }}" width="100" height="100" alt=""></a> </td>
+                            <td style="border-bottom: 1px solid #ddd;"> {{ rs.category }} </td>
+                            <td style="border-bottom: 1px solid #ddd;"> <a href="/travel/{{ rs.id }}/{{ rs.slug }}"><h4 class="travel-name">{{ rs.title }}</h4></a></td>
+                            <td style="border-bottom: 1px solid #ddd;"> <h4> ${{ rs.price }}</h4></td>
+                            <td style="border-bottom: 1px solid #ddd;"> <h4> {{ rs.status }}</h4></td>
+                            <td style="border-bottom: 1px solid #ddd;"> <a class="genric-btn info-border" href="/user/contentedit/{{ rs.id }}"> Edit</a> </td>
+                            <td style="border-bottom: 1px solid #ddd;"> <a onclick="return confirm('Will be Delete ! Are you Sure?')" class="genric-btn danger-border" href="/user/contentdelete/{{ rs.id }}"> Delete</a> </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+                <div class="col-md-4">
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
